@@ -1,25 +1,26 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model IQueryable<Project>
-
+@model ProjectListViewModel 
 <!--This will be our "home" page-->
-<br />
-<header>
-    <div class="text-center popover-header" style="background-color: antiquewhite; font-family: 'Century Gothic'">
-        <h1>Online Bookstore</h1>
-    </div>
-</header>
-<br />
-@foreach (var x in Model)
+@foreach (var x in Model.Projects)
 {
-<div class="container container-fluid" style="float:initial; color: cadetblue">
-    <h3>Book: @x.Title</h3>
-    <p>@x.Author</p>
-    <p>@x.Publisher</p>
-    <p>@x.ISBN</p>
-    <p>@x.Classification</p>
-    <p>@x.Price</p>
-    <hr />
+<div class="row">
+    <div class="ol-md-8 mx-auto card card-outline-primary m-2 p-3 container container-fluid border border-info">
+        <h3>@x.Title</h3>
+        <p>Author: <b>@x.FirstName @x.LastName</b></p>
+        <p>Publisher: <b>@x.Publisher</b></p>
+        <p>ISBN: <b>@x.ISBN</b></p>
+        <p>Classification/Category: <b>@x.Classification, @x.Category</b></p>
+        <p>Number of Pages: <b>@x.PageNumbers</b></p>
+        <p>Price: <b>@x.Price</b></p>
+    </div>
 </div>
 }
+<!--Use the tag helper here, and use the page model to execute the code in Home Controller
+    This will be for the navigation numbers at the bottom-->
+<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-info"
+     class="class="col-xs-1" align="center"
+     ></div>

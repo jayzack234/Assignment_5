@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Assignment_5</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <!--At this point, this is where the page will add its personalized content-->
-    <div>
-        @RenderBody()
-    </div>
-</body>
+</head>''
+<div class="bg-transparent">
+    <body>
+        <br />
+        <div class="jumbotron">
+            <h1 class="text-center display-1">Online Bookstore</h1>
+            <p class="text-center lead">Welcome to the Bookstore! Below, you can find our most popular books.</p>
+            <hr />
+        </div>
+        <img src="~/img/book_pic.png" class="rounded mx-auto d-block" />
+        <!--At this point, this is where the page will add its personalized content-->
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+</div>
 </html>
+

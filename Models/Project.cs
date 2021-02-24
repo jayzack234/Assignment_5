@@ -16,7 +16,9 @@ namespace Assignment_5.Models
         [Required]
         public string Title { get; set; }
         [Required]
-        public string Author { get; set; }
+        public string LastName { get; set; }
+        [Required]
+        public string FirstName { get; set; }
         [Required]
         public string Publisher { get; set; }
         //The ISBN contains a regular expression to validate it
@@ -26,7 +28,11 @@ namespace Assignment_5.Models
         [Required]
         public string Classification { get; set; }
         [Required]
+        public string Category { get; set; }
+        [Required]
         public string Price { get; set; }
+        [Required]
+        public int PageNumbers { get; set; }
 
     }
 }
