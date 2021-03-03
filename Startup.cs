@@ -59,10 +59,21 @@ namespace Assignment_5
 
             app.UseEndpoints(endpoints =>
             {
+                //Not sure what this one did, but helped with highlighting the correct link
+                endpoints.MapControllerRoute("catpage",
+                   "{category}/{page:int}",
+                   new { Controller = "Home", action = "Index" });
+
                 //This will improve the URL/Route looks
                 endpoints.MapControllerRoute(
                     "pagination", "Projects/{page}", 
-                    new { Controller = "Home", action = "Index"});
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                //Gives the user the ability to filter by category, ex. "/..."
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
                 endpoints.MapDefaultControllerRoute();
             });
             SeedData.EnsurePopulated(app);

@@ -1,0 +1,15 @@
+﻿@model Project
+
+<div class="row">
+    <div class="ol-md-8 mx-auto card card-outline-primary m-2 p-3 container container-fluid border border-info">
+        <h3>@Model.Title</h3>
+        <p>Author: <b>@Model.FirstName @Model.LastName</b></p>
+        <p>Publisher: <b>@Model.Publisher</b></p>
+        <p>ISBN: <b>@Model.ISBN</b></p>
+        <p>Classification/Category: <b>@Model.Classification, @Model.Category</b></p>
+        <p>Number of Pages: <b>@Model.PageNumbers</b></p>
+        <div class="alert alert-success" role="alert">
+            <p>Price: <b>@Model.Price</b></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<string>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-lg btn-outline-secondary" asp-action="Index" asp-controller="Home"
+           asp-route-category="">
+            Home
+        </a>
+    </div>
+<br />
+    <div class="d-flex justify-content-center">
+        @foreach (string category in Model)
+        {
+            <a class="btn btn-lg mr-1 @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
+               asp-action="Index" asp-controller="Home"
+               asp-route-category="@category"
+               asp-route-page="1">
+                @category
+            </a>
+        }
+    </div>

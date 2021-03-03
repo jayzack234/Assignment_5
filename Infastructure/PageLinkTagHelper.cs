@@ -17,7 +17,7 @@ namespace Assignment_5.Infastructure
     {
         private IUrlHelperFactory urlHelperFactory;
         //Constructor
-        public PageLinkTagHelper (IUrlHelperFactory hp)
+        public PageLinkTagHelper(IUrlHelperFactory hp)
         {
             urlHelperFactory = hp;
         }
@@ -28,6 +28,10 @@ namespace Assignment_5.Infastructure
         public ViewContext ViewContext { get; set; }
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
+
+        //key-pair value
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
@@ -43,7 +47,9 @@ namespace Assignment_5.Infastructure
             {
                 //build the tag
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+
+                PageUrlValues["page"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
 
                 //For the navigation menu, this makes sure the proper page is selected
                 if(PageClassesEnabled)

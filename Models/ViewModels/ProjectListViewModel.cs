@@ -12,5 +12,7 @@ namespace Assignment_5.Models.ViewModels
     {
         public IEnumerable<Project> Projects { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        //This variable is a property of the view model
+        public string CurrentCategory { get; set; }
     }
 }

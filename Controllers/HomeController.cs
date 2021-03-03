@@ -28,22 +28,28 @@ namespace Assignment_5.Controllers
 
         //Passing that varaiable created above, default is page 1
         //Passing in a repository projects, but specifically only a set number for each page (5 items per page as specified by the variable above)
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             return View(new ProjectListViewModel
             {
                 Projects = _repository.Projects
+                //if the category is null or if the classification is equal to the category, then select it
+                    .Where(p => category == null || p.Category == category)
                     .OrderBy(p => p.BookId)
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize),
                 //New paginginfo object
-                    PagingInfo = new PagingInfo
-                    {
-                        CurrentPage = page,
-                        ItemsPerPage = PageSize,
-                        TotalNumItems = _repository.Projects.Count()
-                    }
-            });
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalNumItems = category == null? _repository.Projects.Count() :
+                    //This fixes the page number
+                        _repository.Projects.Where (x => x.Category == category).Count()
+                },
+                //Current category is set to whatever is selected, this is for url parameters of filtering by category
+                CurrentCategory = category
+            }); ;
         }
 
         public IActionResult Privacy()
