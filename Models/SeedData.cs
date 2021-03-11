@@ -35,7 +35,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0451419439",
                         Classification = "Fiction",
                         Category = "Classic",
-                        Price = "$9.95",
+                        Price = 10.99m,
                         PageNumbers = 1488
                     },
                     new Project
@@ -47,7 +47,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0743270755",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = "$14.58",
+                        Price = 15.99m,
                         PageNumbers = 944
                     },
                     new Project
@@ -59,7 +59,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0553384611",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = "$21.54",
+                        Price = 22.99m,
                         PageNumbers = 832
                     },
                     new Project
@@ -71,7 +71,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0812981254",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = "$11.61",
+                        Price = 12.99m,
                         PageNumbers = 864
                     },
                     new Project
@@ -84,7 +84,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0812974492",
                         Classification = "Non-Fiction",
                         Category = "Historical",
-                        Price = "$13.33",
+                        Price = 13.99m,
                         PageNumbers = 528
                     },
                     new Project
@@ -96,7 +96,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0804171281",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
-                        Price = "$15.95",
+                        Price = 16.99m,
                         PageNumbers = 288
                     },
                     new Project
@@ -108,7 +108,7 @@ namespace Assignment_5.Models
                         ISBN = "978-1455586691",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = "$14.99",
+                        Price = 15.99m,
                         PageNumbers = 304
                     },
                     new Project
@@ -120,7 +120,7 @@ namespace Assignment_5.Models
                         ISBN = "978-1455523023",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = "$21.66",
+                        Price = 22.99m,
                         PageNumbers = 240
                     },
                     new Project
@@ -132,7 +132,7 @@ namespace Assignment_5.Models
                         ISBN = "978-1591847984",
                         Classification = "Non-Fiction",
                         Category = "Business",
-                        Price = "$29.16",
+                        Price = 30.99m,
                         PageNumbers = 400
                     },
                     new Project
@@ -144,7 +144,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0553393613",
                         Classification = "Fiction",
                         Category = "Thrillers",
-                        Price = "$15.03",
+                        Price = 15.99m,
                         PageNumbers = 462
                     },
                     new Project
@@ -156,7 +156,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0451524935",
                         Classification = "Fiction",
                         Category = "Dystopian",
-                        Price = "$7.15",
+                        Price = 7.99m,
                         PageNumbers = 328
                     },
                     new Project
@@ -168,7 +168,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0399501487",
                         Classification = "Fiction",
                         Category = "Pyschological",
-                        Price = "$5.99",
+                        Price = 6.99m,
                         PageNumbers = 224
                     }
                     ,
@@ -181,7 +181,7 @@ namespace Assignment_5.Models
                         ISBN = "978-0143035718",
                         Classification = "Non-Fiction",
                         Category = "Military",
-                        Price = "$17.36",
+                        Price = 17.99m,
                         PageNumbers = 512
                     }
                 );

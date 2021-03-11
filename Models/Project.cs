@@ -30,9 +30,10 @@ namespace Assignment_5.Models
         [Required]
         public string Category { get; set; }
         [Required]
-        public string Price { get; set; }
+        public decimal Price { get; set; }
         [Required]
         public int PageNumbers { get; set; }
+
 
     }
 }

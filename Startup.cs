@@ -1,6 +1,7 @@
 using Assignment_5.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,10 +32,18 @@ namespace Assignment_5
             services.AddDbContext<BookstoreDbContext>(options =>
            {
                //sets the options to use sqlserver to access what's connected to the connection string
-               options.UseSqlServer(Configuration["ConnectionStrings:OnlineBookstoreConnection"]);
+               options.UseSqlite(Configuration["ConnectionStrings:OnlineBookstoreConnection"]);
            });
             //Each request will get its own repository
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            //Add this service to our project
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +61,9 @@ namespace Assignment_5
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            //Sets up a session when the site is loaded
+            app.UseSession();
 
             app.UseRouting();
 
@@ -75,6 +87,8 @@ namespace Assignment_5
                     new { Controller = "Home", action = "Index", page = 1 });
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
             SeedData.EnsurePopulated(app);
         }

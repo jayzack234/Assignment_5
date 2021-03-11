@@ -24,3 +24,6 @@ namespace Assignment_5
                 });
     }
 }
+
+
+//Pass in a view with view name, view name and object model, object model, and view empty

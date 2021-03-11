@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment_5.Infastructure
+namespace Assignment_5.Infrastructure
 {
     //Tag Helpers (dynamic HTML), this will be applied to divs
     [HtmlTargetElement("div", Attributes = "page-model")]
